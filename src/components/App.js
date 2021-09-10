@@ -17,7 +17,7 @@ const items = [
 
 const App = ()=>{
 
-  return (<Accordion/>)
+  return (<Accordion items={items}/>)
 }
 
 
