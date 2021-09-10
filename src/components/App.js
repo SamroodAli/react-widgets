@@ -1,24 +1,22 @@
-import Accordion  from "./Accordion"
+import Accordion from "./Accordion";
 
 const items = [
   {
-    title:"What is React ?",
-    content:"React is a front end framework"
+    title: "What is React ?",
+    content: "React is a front end framework",
   },
   {
-    title:"Why do we use React ?",
-    content:"React is a declarative framework"
+    title: "Why do we use React ?",
+    content: "React is a declarative framework",
   },
   {
-    title:"How do we use React ?",
-    content:"We use React by writing components"
-  }
-]
+    title: "How do we use React ?",
+    content: "We use React by writing components",
+  },
+];
 
-const App = ()=>{
+const App = () => {
+  return <Accordion items={items} />;
+};
 
-  return (<Accordion items={items}/>)
-}
-
-
-export default  App
+export default App;
