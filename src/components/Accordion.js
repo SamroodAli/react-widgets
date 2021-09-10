@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Accordion = ({ items }) => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
   const onItemClicked = (index) => {
     console.log(index);
     return index;
