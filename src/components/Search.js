@@ -1,7 +1,12 @@
 const Search = () => {
   return (
     <div>
-      <p>Hello world</p>
+      <div className="ui form">
+        <div className="field">
+          <label htmlFor="">Enter Search Term</label>
+          <input className="input" />
+        </div>
+      </div>
     </div>
   );
 };
