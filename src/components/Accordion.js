@@ -1,3 +1,7 @@
-export default function Accordion(){
-  return (<p>Accordion</p>)
+
+const Accordion =  ({items})=>{
+  return (<p>{items.length}</p>)
 }
+
+
+export default Accordion
