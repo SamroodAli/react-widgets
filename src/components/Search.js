@@ -1,45 +1,36 @@
 import React, { useState, useEffect } from "react";
 import Wikipedia from "../api/wikipedia";
-// import axios from "axios";
+import SearchCards from "./SearchCard";
 
 const Search = () => {
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState("Programming");
   const [results, setResults] = useState([]);
+  const [debouncedTerm, setDeboundedTerm] = useState(term);
   const delay = 500;
 
-  const searchWiki = async (term) => {
-    const response = await Wikipedia.get("/api.php", {
-      params: { srsearch: term },
-    });
-    setResults(response.data.query.search);
-  };
-
-  const renderedResults = results.map((result) => {
-    return (
-      <div className="item" key={result.pageid}>
-        <div className="content">
-          <a
-            className="ui button right floated"
-            href={`https://en.wikipedia.org?curid=${result.pageid}`}
-          >
-            Go
-          </a>
-          <div className="content">
-            <div className="header">{result.title}</div>
-            <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
-          </div>
-        </div>
-      </div>
-    );
-  });
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDeboundedTerm(term);
+    }, delay);
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [term]);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (term) {
-        searchWiki(term);
-      }
-    }, delay);
-  }, [term]);
+    const search = async () => {
+      const { data } = await Wikipedia.get("/api.php", {
+        params: { srsearch: debouncedTerm },
+      });
+      setResults(data.query.search);
+    };
+
+    if (debouncedTerm) {
+      search();
+    } else {
+      setResults([]);
+    }
+  }, [debouncedTerm]);
 
   return (
     <div>
@@ -53,7 +44,9 @@ const Search = () => {
           />
         </form>
       </div>
-      <div className="ui celled list">{renderedResults}</div>
+      <div className="ui celled list">
+        <SearchCards results={results} />
+      </div>
     </div>
   );
 };
