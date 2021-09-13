@@ -1,6 +1,8 @@
 import React from "react";
 
 const Dropdown = ({ selected, onSelectChange, options }) => {
+  const [open, setOpen] = useState(false);
+
   const renderedOptions = options.map((option) => {
     if (option.value === selected.value) return null;
     return (
@@ -17,7 +19,7 @@ const Dropdown = ({ selected, onSelectChange, options }) => {
     <div className="ui form">
       <div className="field">
         <label className="label">Select a Color</label>
-        <div className="ui selection dropdown">
+        <div onClick={() => setOpen(!open)} className="ui selection dropdown">
           <i className="dropdown icon"></i>
           <div className="text">{selected.label}</div>
           <div className="menu ">{renderedOptions}</div>
