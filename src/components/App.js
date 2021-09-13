@@ -34,7 +34,7 @@ const options = [
 ];
 
 const App = () => {
-  const [selected, setSelected] = useState(useState(options[0]));
+  const [selected, setSelected] = useState(options[0]);
   // return <Accordion items={items} />;
   // return <Search />;
   return (
