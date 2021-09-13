@@ -1,10 +1,11 @@
 import Axios from "axios";
 
 export default Axios.create({
-  baseUrl: "https://www.example.org/w/api.php",
+  baseURL: "https://en.wikipedia.org/w",
   params: {
     action: "query",
     list: "search",
+    origin: "*",
     format: "json",
   },
 });
