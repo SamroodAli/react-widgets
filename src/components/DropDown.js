@@ -20,15 +20,18 @@ const Dropdown = ({ selected, onSelectChange, options }) => {
   });
 
   useEffect(() => {
-    document.addEventListener(
-      "click",
-      (e) => {
-        if (!ref.current.contains(e.target)) {
-          setOpen(false);
-        }
-      },
-      { capture: true }
-    );
+    const onBodyClick = (event) => {
+      if (ref.current.contains(event.target)) {
+        return;
+      }
+      setOpen(false);
+    };
+    document.body.addEventListener("click", onBodyClick, { capture: true });
+    return () => {
+      document.body.removeEventListener("click", onBodyClick, {
+        capture: true,
+      });
+    };
   }, []);
 
   return (
