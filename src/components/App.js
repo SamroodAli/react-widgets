@@ -2,11 +2,13 @@ import TranslateApp from "./TranslateApp";
 import ColorChooser from "./ColorChooserApp";
 import SearchApp from "./SearchApp";
 import AccordionApp from "./AccordionApp";
+import Header from "./Header";
 import Route from "./route";
 
 const App = () => {
   return (
     <div>
+      <Header />
       <Route path="/">
         <TranslateApp />
       </Route>
