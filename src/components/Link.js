@@ -1,5 +1,12 @@
 const Link = ({ href, children }) => {
-  return <a href={href}>{children}</a>;
+  const onClick = (event) => {
+    event.preventDefault();
+  };
+  return (
+    <a onClick={onClick} href={href}>
+      {children}
+    </a>
+  );
 };
 
 export default Link;
