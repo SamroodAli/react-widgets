@@ -29,6 +29,7 @@ const ColorChooser = () => {
       </button>
       {showDropDown && (
         <Dropdown
+          label="Choose a color"
           selected={selected}
           onSelectChange={setSelected}
           options={options}
