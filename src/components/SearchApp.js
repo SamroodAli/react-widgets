@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Wikipedia from "../api/wikipedia";
 import SearchCards from "./SearchCard";
 
-const Search = () => {
+const SearchApp = () => {
   const [term, setTerm] = useState("Programming");
   const [results, setResults] = useState([]);
   const [debouncedTerm, setDeboundedTerm] = useState(term);
@@ -51,4 +51,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchApp;
