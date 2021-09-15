@@ -4,7 +4,7 @@ const Convert = ({ language, text }) => {
   const [translatedText, setTranslatedText] = useState("");
 
   useEffect(() => {
-    setTranslatedText(language + text);
+    setTranslatedText(language.label + text);
   }, [language, text]);
 
   return <h1>{translatedText}</h1>;
