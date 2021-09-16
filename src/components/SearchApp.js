@@ -22,7 +22,9 @@ const SearchApp = () => {
       const { data } = await Wikipedia.get("/api.php", {
         params: { srsearch: debouncedTerm },
       });
-      setResults(data.query.search);
+      if (window.location.pathname === "/search") {
+        setResults(data.query.search);
+      }
     };
 
     if (debouncedTerm) {
