@@ -11,7 +11,7 @@ const Header = () => {
         Drop down
       </Link>
       <Link href="/search" className="item">
-        Search Wiki
+        Search
       </Link>
       <Link href="/accordion" className="item">
         Accordion
