@@ -2,9 +2,11 @@ import { useEffect } from "react";
 
 const Route = ({ path, children }) => {
   useEffect(() => {
-    window.addEventListener("popstate", () => {
-      console.log("url changed");
-    });
+    const onLocationChange = () => {};
+    window.addEventListener("popstate", onLocationChange);
+    return () => {
+      window.removeEventListener("popstate", onLocationChange);
+    };
   }, []);
   return window.location.pathname === path ? children : null;
 };
