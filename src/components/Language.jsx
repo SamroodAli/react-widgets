@@ -27,16 +27,9 @@ class Languages extends React.Component {
             }}
           ></i>
         </div>
-        Changeable context
         <LanguageContext.Provider value={this.state.language}>
           <UserCreate />
         </LanguageContext.Provider>
-        Hard-coded context
-        <LanguageContext.Provider value="dutch">
-          <UserCreate />
-          Default context
-        </LanguageContext.Provider>
-        <UserCreate />
       </div>
     );
   }
