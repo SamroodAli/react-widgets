@@ -1,11 +1,12 @@
 import React from "react";
 import UserCreate from "./UserCreate";
+import LanguageContext from "../contexts/LanguageContext";
 
 class Languages extends React.Component {
-  state = { langauge: "english" };
+  state = { language: "english" };
 
   onLanguageChange = (language) => {
-    this.setState({ langauge: language });
+    this.setState({ language: language });
   };
 
   render() {
@@ -26,7 +27,9 @@ class Languages extends React.Component {
             }}
           ></i>
         </div>
-        <UserCreate />
+        <LanguageContext.Provider value={this.state.language}>
+          <UserCreate />
+        </LanguageContext.Provider>
       </div>
     );
   }
