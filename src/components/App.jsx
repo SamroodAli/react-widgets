@@ -2,6 +2,7 @@ import TranslateApp from "./TranslateApp";
 import ColorChooser from "./ColorChooserApp";
 import SearchApp from "./SearchApp";
 import AccordionApp from "./AccordionApp";
+import Languages from "./Language";
 import Header from "./Header";
 import Route from "./route";
 
@@ -20,6 +21,9 @@ const App = () => {
       </Route>
       <Route path="/accordion">
         <AccordionApp />
+      </Route>
+      <Route path="/languages">
+        <Languages />
       </Route>
     </div>
   );

@@ -16,6 +16,9 @@ const Header = () => {
       <Link href="/accordion" className="item">
         Accordion
       </Link>
+      <Link href="/languages" className="item">
+        Languages
+      </Link>
     </div>
   );
 };
