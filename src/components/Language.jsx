@@ -1,4 +1,5 @@
 import React from "react";
+import UserCreate from "./UserCreate";
 
 class Languages extends React.Component {
   state = { langauge: "english" };
@@ -25,7 +26,7 @@ class Languages extends React.Component {
             }}
           ></i>
         </div>
-        {this.state.langauge}
+        <UserCreate />
       </div>
     );
   }
