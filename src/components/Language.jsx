@@ -21,10 +21,11 @@ class Languages extends React.Component {
           <i
             className="flag nl"
             onClick={() => {
-              this.onLanguage("dutch");
+              this.onLanguageChange("dutch");
             }}
           ></i>
         </div>
+        {this.state.langauge}
       </div>
     );
   }
